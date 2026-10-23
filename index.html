@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="Explore art and design projects from the CODAworx creative community." />
+    <title>CODAworx — Explore creative projects</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/Logo-CODAworx.svg" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="./projects.js"></script>
+    <script defer src="./main.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner wrap">
+        <a class="brand" href="./index.html" aria-label="CODAworx home"><img src="./assets/Logo-CODAworx.svg" alt="CODAworx" /></a>
+        <details class="language-menu menu">
+          <summary aria-label="Choose language"><span class="globe" aria-hidden="true">◎</span> EN <span class="chevron" aria-hidden="true"></span></summary>
+          <div class="menu-panel small-panel"><p>Language</p><button type="button" data-language="en" aria-current="true">English</button></div>
+        </details>
+        <button class="mobile-menu-button" id="mobile-menu-button" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
+        <nav id="main-nav" class="main-nav" aria-label="Main navigation">
+          <details class="menu"><summary>Hire <span class="chevron" aria-hidden="true"></span></summary><div class="menu-panel"><a href="#projects">Project Library</a><a href="#projects">Creative Directory</a></div></details>
+          <details class="menu"><summary>Get Hired <span class="chevron" aria-hidden="true"></span></summary><div class="menu-panel"><a href="#projects">Explore projects</a><button type="button" data-open-upload>Upload a project</button></div></details>
+          <details class="menu"><summary>Connect <span class="chevron" aria-hidden="true"></span></summary><div class="menu-panel"><a href="#spotlight">Community spotlight</a><a href="#footer">Contact</a></div></details>
+          <a href="#footer">Membership</a>
+          <button class="upload-button" type="button" data-open-upload>Upload Project</button>
+          <details class="menu profile-menu"><summary aria-label="Account menu"><span class="profile-badge">KT<em></em></span></summary><div class="menu-panel"><p>Kobe Thou</p><button type="button" id="show-saved-menu">Saved projects</button><a href="#footer">Account</a></div></details>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero-content wrap">
+          <div class="hero-heading-group">
+            <img class="hero-logo" src="./assets/CODAworx_white_logo.webp" alt="CODAworx" />
+            <h1 id="hero-heading">Collaboration of Design + Art</h1>
+            <p>Connecting Creative Talent to Creative Opportunities</p>
+          </div>
+          <div class="hero-bottom"><strong>Welcome back, Kobe Thou</strong><span>@ Dimensions at Sensorio Paso Robles</span></div>
+        </div>
+      </section>
+
+      <div class="search-wrap wrap">
+        <form id="search-form" class="search-form" role="search">
+          <label><span>Search in</span><select id="search-type"><option value="all">Keywords</option><option value="title">Projects</option><option value="artist">Creatives</option><option value="location">Locations</option></select></label>
+          <label><span>What you are looking for</span><input id="search-input" type="search" placeholder="Search" autocomplete="off" /></label>
+          <button class="primary-button" type="submit">Search</button>
+        </form>
+      </div>
+
+      <section class="feed" id="projects" aria-labelledby="feed-heading">
+        <div class="wrap">
+          <div class="feed-heading"><div><h2 id="feed-heading">Recommended for you</h2><p id="results-summary" class="results-summary" role="status" aria-live="polite"></p></div><button id="personalize-button" class="outline-button" type="button" aria-pressed="false"><img src="./assets/filter-icon.svg" alt="" /> Personalize my feed</button></div>
+          <div id="project-grid" class="project-grid"></div>
+          <div id="empty-state" class="empty-state" hidden><h3>No projects found</h3><p>Try another search or show all projects.</p><button id="clear-search" class="outline-button" type="button">Show all projects</button></div>
+          <div class="load-more-row"><button id="load-more" class="primary-button" type="button">Load More Projects</button></div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="wrap">
+        <a href="./index.html" class="footer-logo" aria-label="CODAworx home"><img src="./assets/CodaWorx_footer.svg" alt="CODAworx" /></a>
+        <div class="footer-columns">
+          <div><h3>Find people &amp; projects</h3><a href="#projects">Project Library</a><a href="#projects">Creative Directory</a></div>
+          <div><h3>Awards &amp; events</h3><a href="#projects">CODAawards</a><a href="#projects">CODAsummit</a><a href="#projects">Creative Revolutionaries</a></div>
+          <div><h3>Resources</h3><a href="#spotlight">CODAzine</a><a href="#projects">Commissioner Tools</a><a href="#footer">Membership</a><a href="#footer">Guide for Commissioners</a><a href="#footer">Help Center</a></div>
+          <div><h3>Company</h3><a href="#footer">CODAworx Story</a><a href="#footer">Advertising / Sponsorships</a><a href="#footer">Press Release</a><a href="https://knowledge.codaworx.com/knowledge/kb-tickets/new" target="_blank" rel="noopener noreferrer">Contact Us</a></div>
+        </div>
+        <div class="footer-contact"><p>Interested in commissioning a piece of art, buying a piece of art or promoting your Open Call to the CODAworx community? Please <a href="https://knowledge.codaworx.com/knowledge/kb-tickets/new" target="_blank" rel="noopener noreferrer">contact us.</a></p><div class="social-links"><a href="https://www.facebook.com/CODAworx" aria-label="Facebook"><img src="./assets/facebook.svg" alt="" /></a><a href="https://www.linkedin.com/company/codaworx" aria-label="LinkedIn"><img src="./assets/linkedin.svg" alt="" /></a><a href="https://www.instagram.com/codaworx" aria-label="Instagram"><img src="./assets/instagram.svg" alt="" /></a></div></div>
+        <div class="footer-bottom"><span>All rights reserved. © 2026 CODAworx</span><span><a href="#footer">Terms of Use</a> | <a href="#footer">Privacy Policy</a></span></div>
+      </div>
+    </footer>
+
+    <button id="chat-button" class="chat-button" type="button" aria-label="Open help chat" aria-expanded="false" aria-controls="chat-panel"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 4.5h16v12H8l-4 3v-15Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></button>
+    <div id="chat-panel" class="chat-panel" hidden><div class="chat-panel-header"><strong>How can we help?</strong><button type="button" id="close-chat" aria-label="Close help chat">×</button></div><p>Explore projects or get in touch with the CODAworx team.</p><a href="https://knowledge.codaworx.com/knowledge/kb-tickets/new" target="_blank" rel="noopener noreferrer">Contact CODAworx</a></div>
+
+    <dialog id="project-dialog" class="project-dialog"><button type="button" class="dialog-close" data-close-dialog aria-label="Close project">×</button><img id="dialog-image" alt="" /><div class="dialog-content"><p id="dialog-artist" class="dialog-artist"></p><h2 id="dialog-title"></h2><p id="dialog-location"></p><button id="dialog-save" class="outline-button" type="button">Save project</button></div></dialog>
+    <dialog id="upload-dialog" class="upload-dialog"><button type="button" class="dialog-close" data-close-dialog aria-label="Close upload form">×</button><h2>Upload Project</h2><p>Add a project to this browser’s local copy.</p><form id="upload-form"><label>Project name<input name="title" required maxlength="100" /></label><label>Location<input name="location" required maxlength="100" /></label><label>Creative or studio<input name="artist" required maxlength="100" /></label><label>Image URL<input name="image" type="url" placeholder="https://…" /></label><button class="primary-button" type="submit">Add project</button></form></dialog>
+  </body>
+</html>
