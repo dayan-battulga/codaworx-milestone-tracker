@@ -1,13 +1,14 @@
 # CODAworx clone and milestone tracker
 
-This is an editable remake of the [reference homepage](https://codaworx-engineer.vercel.app/index.html), with a post-award milestone tracker at `/tracker.html`. The public copy is hosted at [codaworx-gallery-remake-2026.fluffyrice14.chatgpt.site](https://codaworx-gallery-remake-2026.fluffyrice14.chatgpt.site). Changes in this folder are local until a new Site version is published.
+This is an editable remake of the [reference homepage](https://codaworx-engineer.vercel.app/index.html), with a post-award milestone tracker at `/tracker.html`. The [source repository](https://github.com/dayan-battulga/codaworx-milestone-tracker) is public, and the live site is at [codaworx-gallery-remake-2026.fluffyrice14.chatgpt.site](https://codaworx-gallery-remake-2026.fluffyrice14.chatgpt.site). Changes in this folder are local until a new Site version is published.
 
 ## Run it locally
 
-Install Node.js 22.13 or newer, then run:
+Install Node.js 22.13 or newer, then clone the project and run:
 
 ```sh
-cd "/Users/dayanbattulga/Desktop/code/misc/CodaWorx"
+git clone https://github.com/dayan-battulga/codaworx-milestone-tracker.git
+cd codaworx-milestone-tracker
 npm ci
 npm run build
 node --import ./scripts/sites-env.mjs ./node_modules/wrangler/bin/wrangler.js d1 execute DB --local --config dist/server/wrangler.json --persist-to .wrangler/state --file drizzle/0000_real_moira_mactaggert.sql
@@ -59,3 +60,5 @@ npm run build
 `node build.mjs` is an alias for `npm run build`. The output in `dist/` is a Cloudflare Worker build with database and file-storage bindings; it is not a standalone static folder. To update the public site, ask Codex in this project to **publish the current CodaWorx folder to the existing Site in `.openai/hosting.json`**. The public URL stays the same. Codex Sites applies new migrations during publication.
 
 The public Site uses ChatGPT sign-in, D1 for milestone records, and R2 for attachments. Project data and private files are limited to the commissioner and invited artist by the API. A selected showcase image becomes public only when the commissioner publishes that project.
+
+Anyone can view or clone the GitHub repository. Contributors who need to push changes can be invited through its **Settings → Collaborators** page. The gallery contains third-party artwork and CODAworx branding; this repository does not grant reuse rights to those assets.
