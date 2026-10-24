@@ -2,6 +2,8 @@
 
 This is an editable remake of the [reference homepage](https://codaworx-engineer.vercel.app/index.html), with a post-award milestone tracker at `/tracker.html`. The [source repository](https://github.com/dayan-battulga/codaworx-milestone-tracker) is public, and the live site is at [codaworx-gallery-remake-2026.fluffyrice14.chatgpt.site](https://codaworx-gallery-remake-2026.fluffyrice14.chatgpt.site). Changes in this folder are local until a new Site version is published.
 
+For a visual tour of the milestone workflow, see the [screenshot walkthrough](docs/milestone-walkthrough.md).
+
 ## Run it locally
 
 Install Node.js 22.13 or newer, then clone the project and run:
