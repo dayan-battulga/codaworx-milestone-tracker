@@ -7,10 +7,10 @@
   <title>Milestone Tracker — CODAworx</title>
   <link rel="icon" href="./assets/Logo-CODAworx.svg" />
   <link rel="stylesheet" href="./tracker.css" />
-  <script defer src="./tracker.js"></script>
+  <script type="module" src="./tracker.js"></script>
 </head>
 <body>
-  <header class="topbar"><div class="shell topbar-inner"><a href="./index.html" class="brand"><img src="./assets/Logo-CODAworx.svg" alt="CODAworx" /></a><span class="divider"></span><span class="product-name">Project milestones</span><nav><a href="./index.html">Explore projects</a><a href="#" id="signout" hidden>Sign out</a></nav></div></header>
+  <header class="topbar"><div class="shell topbar-inner"><a href="./index.html" class="brand"><img src="./assets/Logo-CODAworx.svg" alt="CODAworx" /></a><span class="divider"></span><span class="product-name">Project milestones <small>Interactive demo</small></span><nav><div class="role-switch" role="group" aria-label="Demo view"><button type="button" data-role="commissioner">Commissioner</button><button type="button" data-role="artist">Artist</button></div><a href="./index.html">Explore projects</a></nav></div></header>
   <div id="flash" class="flash" role="status" aria-live="polite" hidden></div>
   <main id="app" class="shell" aria-live="polite"><div class="loading">Loading your projects…</div></main>
 </body>

@@ -12,7 +12,8 @@ const persist = (key, value) => {
 };
 
 const extraProjects = stored('codaworx-projects', []);
-const showcaseProjects = [];
+const demoShowcase = stored('codaworx-milestone-demo-v1', {}).showcase || [];
+const showcaseProjects = demoShowcase.map((item) => [item.title, item.location || 'Completed commission', item.artist_name, 'showcase-placeholder.svg']);
 const savedProjects = new Set(stored('codaworx-saved', []));
 const grid = $('#project-grid');
 let query = '';
@@ -23,7 +24,7 @@ let activeProject = null;
 
 const allProjects = () => [...showcaseProjects, ...extraProjects, ...projects];
 const projectId = (project) => `${project[0]}|${project[1]}`;
-const projectImage = (project) => project[3]?.startsWith('https://') || project[3]?.startsWith('http://') || project[3]?.startsWith('/api/') ? project[3] : asset(project[3] || 'DL10.webp');
+const projectImage = (project) => project[3]?.startsWith('https://') || project[3]?.startsWith('http://') || project[3]?.startsWith('/api/') || project[3]?.startsWith('blob:') ? project[3] : asset(project[3] || 'DL10.webp');
 const matches = (project) => {
   if (savedOnly && !savedProjects.has(projectId(project))) return false;
   if (!query) return true;
@@ -240,6 +241,18 @@ document.querySelectorAll('[data-language]').forEach((button) => button.addEvent
   $('.language-menu').open = false;
 }));
 render();
+if (demoShowcase.some((item) => item.image_attachment_id)) {
+  const request = indexedDB.open('codaworx-demo-files', 1);
+  request.onsuccess = () => {
+    const database = request.result;
+    if (!database.objectStoreNames.contains('files')) return;
+    demoShowcase.forEach((item, index) => {
+      if (!item.image_attachment_id) return;
+      const fileRequest = database.transaction('files', 'readonly').objectStore('files').get(item.image_attachment_id);
+      fileRequest.onsuccess = () => { if (fileRequest.result) { showcaseProjects[index][3] = URL.createObjectURL(fileRequest.result); render(); } };
+    });
+  };
+}
 fetch('/api/tracker?view=showcase').then((response) => response.ok ? response.json() : null).then((data) => {
   if (!data?.entries) return;
   showcaseProjects.push(...data.entries.map((item) => [item.title, item.location || 'Completed commission', item.artist_name, item.image_attachment_id ? `/api/file?id=${encodeURIComponent(item.image_attachment_id)}` : 'showcase-placeholder.svg']));
